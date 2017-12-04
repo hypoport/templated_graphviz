@@ -1,0 +1,52 @@
+digraph G {
+  layout="dot";
+  rankdir=TB;
+  concentrate=true;
+  compound=true;
+  newrank=true;
+  pad="0.2,0.2";
+  splines=curved;
+  /* splines=polyline; */
+  forcelabels=true;
+  outputorder="edgesfirst";
+
+  fontname="helvetica";
+  node[shape="rect",fontname="helvetica"];
+  edge[fontname="helvetica"];
+
+  {% macro foo(bar) -%}
+    {% print '%s ---- ' % bar %}
+  {%- endmacro %}
+
+  {% for node in nodes%} 
+    {{node.id}}[
+    {% if node.name is defined %}
+      label="{{foo(node.name)}}"
+    {% else %}
+      label="{{node.id}}"
+    {% endif %}
+    {% if node.style is defined %}
+      {% if styles.nodes[node.style] is defined %}
+        {{styles.nodes[node.style]}}
+      {% endif %}
+    {% endif %}
+    {% if node.attributes is defined %}
+      {{node.attributes}}
+    {% endif %}
+    ];
+  {% endfor %}
+
+  {% for edge in edges%} 
+    {{edge.nodes.0}} -> {{edge.nodes.1}}[
+    {% if edge.style is defined %}
+      {% if styles.edges[edge.style] is defined %}
+        {{styles.edges[edge.style]}}
+      {% endif %}
+    {% endif %}
+    {% if edge.attributes is defined %}
+      {{edge.attributes}}
+    {% endif %}
+    ];
+  {% endfor %}
+
+}

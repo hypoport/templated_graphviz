@@ -1,0 +1,11 @@
+{
+  "styles":{
+    "nodes": {
+      "note":"style=\"filled,dotted,rounded\";color=red;fillcolor=khaki;",
+      "info":"style=\"filled\";fillcolor=wheat;color=blue;"
+    },
+    "edges": {
+      "note":"color=pink;penwidth=3;style=\"dashed\""
+    }
+  }
+}
