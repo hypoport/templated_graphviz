@@ -9,8 +9,12 @@ with a templating engine (ninja2) in order to compensate shortcomings within the
   * `pip2.7 install j2cli`
 
 ## Usage
+
+### Command line (local)
 * `./compile` 
 * `./compile json_data/nodes_1.json` 
+
+### using the docker container
 
 ## Example
 
