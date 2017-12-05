@@ -14,7 +14,8 @@ script_path="$(dirname $(realpath $0))"
 
 : ${render_file_name:="$(basename ${data_file}| sed 's/\.json$//g')"}
 : ${render_folder:="${script_path}/rendering"}
-: ${render_file:="${render_folder}/${render_file_name}.png"}
+: ${render_format:="png"}
+: ${render_file:="${render_folder}/${render_file_name}.${render_format}"}
 
 mkdir -p ${render_folder}
 j2 -f json \
@@ -24,5 +25,5 @@ j2 -f json \
     | jq --argjson styles "$(cat ${style})" \
     '.styles=($styles.styles * .styles)' \
   ) \
-  | dot -Tpng -o ${render_file}
+  | dot -T${render_format} -o ${render_file}
 
