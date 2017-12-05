@@ -48,5 +48,5 @@
 
 ### Rendered PNG
 
-![example.png][rendering/example.png]
+![example.png](rendering/example.png)
 
