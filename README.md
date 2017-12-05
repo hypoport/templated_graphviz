@@ -1,5 +1,8 @@
 # Templated graphviz
 
+This Repository contains an exploration to generate graphviz dot files
+with a templating engine (ninja2) in order to compensate shortcomings within the dot format.
+
 ## Requirements
 * jq,dot,j2 needs to be installed
   * `brew install graphviz jq`
